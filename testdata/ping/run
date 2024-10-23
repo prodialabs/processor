@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euo pipefail
+
+cwd="$(dirname "${BASH_SOURCE[0]}")"
+
+mkdir -p "$PROCESSOR_ASSETS/$PROCESSOR_NAME"
+
+venv="$PROCESSOR_ASSETS/$PROCESSOR_NAME/venv"
+
+if [[ -v PROCESSOR_BOOTSTRAP && $PROCESSOR_BOOTSTRAP == true ]]; then
+  python3 -m venv "$venv"
+
+  source "$venv/bin/activate"
+  pip install -r "$cwd/requirements.txt"
+fi
+
+source "$venv/bin/activate"
+
+exec python "$cwd/main.py"

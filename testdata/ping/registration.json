@@ -1,0 +1,88 @@
+{
+  "name": "ping",
+  "executable": "run",
+  "meta": {
+    "types": {
+      "ping.v1": {
+        "ttl": 600,
+        "allow": {
+          "admin": true
+        },
+        "schema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "config": {
+              "type": "object",
+              "properties": {
+                "config": {
+                  "type": "object",
+                  "properties": {
+                    "x_factor": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "ping.optimize.v1": {
+        "ttl": 5,
+        "allow": {
+          "admin": true,
+          "daemon": true
+        }
+      }
+    },
+    "optimize": {
+      "type": "ping.optimize.v1",
+      "config": {
+        "x_factor": 2
+      }
+    }
+  },
+  "data": {
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "examples": [
+            "ping.data.v1",
+            "your.data.v1",
+            "their.data.v1"
+          ]
+        },
+        "content_type": {
+          "type": "string",
+          "examples": [
+            "application/octet-stream",
+            "image/jpg",
+            "image/png",
+            "image/webp",
+            "text/plain"
+          ]
+        }
+      }
+    },
+    "input": {
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "array",
+        "minItems": 0,
+        "maxItems": 10
+      }
+    },
+    "output": {
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "array",
+        "minItems": 0,
+        "maxItems": 10
+      }
+    }
+  }
+}
