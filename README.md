@@ -1,5 +1,3 @@
-**This is ALPHA. Remove this warning when the repo is suitable for human consumption.**
-
 # Prodia Processor
 
 ```
@@ -189,3 +187,10 @@ this to bound the amount of work they do per job request while still making
 incremental progress. Processors can also use this behavior to perform loops
 when the job submitter resubmits jobs that aren't yet done. Non-terminating
 loops are also possible if the job submitter permits infinite resubmissions.
+
+---
+
+Copyright (C) 2024 Prodia Inc.
+
+Licensed under the GNU Affero General Public License, version 3
+(AGPL-3.0-only). See [LICENSE](LICENSE) for the full licence text.
